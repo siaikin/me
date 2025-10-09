@@ -41,7 +41,6 @@ import TimeredCounter from '@components/TimeredCounter.astro';
     </header>
 
     <article class="my-skills">
-      <span class="flex-auto" />
       <section class="skill-group" aria-labelledby="expertise-heading">
         <h2 id="expertise-heading" class="group__title">expertise</h2>
         <ul class="skill-list">
@@ -99,7 +98,6 @@ import TimeredCounter from '@components/TimeredCounter.astro';
           </li>
         </ul>
       </section>
-      <span class="flex-auto" />
     </article>
   </main>
 </Layout>
@@ -115,8 +113,8 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 	.user-info {
 		@apply flex-auto overflow-auto px-8 pt-16 pb-4 text-secondary bg-secondary/8;
 		@apply sm:px-12;
-		@apply md:w-golden-minor;
-		@apply lg:pr-0;
+		@apply md:px-4 md:w-golden-minor;
+		@apply lg:pl-8 lg:pr-0;
 		@apply xl:pl-28 xl:pt-32;
 		@apply 2xl:pl-32;
 
@@ -133,7 +131,8 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 	.my-skills {
 		@apply flex-auto overflow-auto flex flex-col justify-start items-start gap-12 p-8 bg-primary/8;
 		@apply sm:px-12;
-		@apply md:w-golden-major;
+		@apply md:w-golden-major md:justify-end md:pb-12;
+		@apply lg:pl-16 lg:pb-16;
 		@apply xl:pl-28;
 		@apply 2xl:pl-48;
 
@@ -141,7 +140,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 			@apply flex flex-col justify-end items-start gap-6;
 			@apply sm:flex-row;
 			@apply md:flex-col;
-			@apply lg:flex-row lg:gap-0;
+			@apply xl:flex-row xl:gap-0;
 
 			.group__title {
 				@apply text-4xl text-secondary uppercase leading-none;
