@@ -159,7 +159,8 @@ export async function createMaskImage(source: Blob): Promise<Blob> {
       data[i + 1] = 0; // G - 黑色  
       data[i + 2] = 0; // B - 黑色
       // data[i + 3] = Math.min(255, maskOpacity); // Alpha - 遮罩透明度
-      data[i + 3] = maskOpacity > 65 ? 255 : 0; // 二值化处理
+      // 64.5 轻度的文字遮罩效果
+      data[i + 3] = maskOpacity > 64.5 ? 255 : 0; // 二值化处理
     }
   }
     
