@@ -14,7 +14,8 @@ import TimeredCounter from '@components/TimeredCounter.astro';
         <!-- <span class="inline-block text-secondary tracking-widest text-base mt-1" style="writing-mode: vertical-rl;">金夏溢</span> -->
         <span class="my-name">SIAIKIN</span>
       </h1>
-      <p class="my-description">
+      <div class="my-description">
+        <p>
         Hi！
         <br />
         我是 siaikin，一名普通开发者。
@@ -22,7 +23,11 @@ import TimeredCounter from '@components/TimeredCounter.astro';
         前端开发是我的主要工作，我也在使用 Golang 开发服务端程序。
         <br />
         我热衷于探索新技术，目前在进行数据可视化方向的学习。
-      </p>
+        </p>
+        <p class="text-right text-xs">
+          —— <span class="highlight">中国 • 宁波</span>
+        </p>
+      </div>
       <nav class="mt-6" aria-label="社交媒体链接">
         <ul class="flex gap-4 text-xl list-none">
           <li><a class="inline-block w-[1em] h-[1em]" href="https://siaikin.website" aria-label="我的文章"><img src="/favicon.svg" alt="我的文章" /></a></li>
@@ -36,6 +41,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
     </header>
 
     <article class="my-skills">
+      <span class="flex-auto" />
       <section class="skill-group" aria-labelledby="expertise-heading">
         <h2 id="expertise-heading" class="group__title">expertise</h2>
         <ul class="skill-list">
@@ -93,6 +99,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
           </li>
         </ul>
       </section>
+      <span class="flex-auto" />
     </article>
   </main>
 </Layout>
@@ -106,7 +113,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 	}
 
 	.user-info {
-		@apply flex-auto px-8 pt-16 pb-4 text-secondary bg-secondary/8;
+		@apply flex-auto overflow-auto px-8 pt-16 pb-4 text-secondary bg-secondary/8;
 		@apply sm:px-12;
 		@apply md:w-golden-minor;
 		@apply lg:pr-0;
@@ -124,7 +131,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 	}
 
 	.my-skills {
-		@apply flex-auto flex flex-col justify-center items-start gap-12 p-8 bg-primary/8;
+		@apply flex-auto overflow-auto flex flex-col justify-start items-start gap-12 p-8 bg-primary/8;
 		@apply sm:px-12;
 		@apply md:w-golden-major;
 		@apply xl:pl-28;
@@ -161,16 +168,14 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 
 				p {
 					@apply text-base mt-1 text-secondary leading-relaxed;
-
-					.highlight {
-						@apply text-primary font-medium;
-					}
 				}
 			}
-
 		}
-
 	}
+
+  .highlight {
+    @apply text-primary font-medium;
+  }
 </style>
 
 <script>
