@@ -1,11 +1,178 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import VueToPrint from '@components/VueToPrint.vue';
+import TimeredCounter from '@components/TimeredCounter.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main class="root">
+    <header class="user-info">
+      <h1>
+        <!-- <span class="inline-block text-secondary tracking-widest text-base mt-1" style="writing-mode: vertical-rl;">金夏溢</span> -->
+        <span class="my-name">SIAIKIN</span>
+      </h1>
+      <p class="my-description">
+        Hi！
+        <br />
+        我是 siaikin，一名普通开发者。
+        <br />
+        前端开发是我的主要工作，我也在使用 Golang 开发服务端程序。
+        <br />
+        我热衷于探索新技术，目前在进行数据可视化方向的学习。
+      </p>
+      <nav class="mt-6" aria-label="社交媒体链接">
+        <ul class="flex gap-4 text-xl list-none">
+          <li><a class="inline-block w-[1em] h-[1em]" href="https://siaikin.website" aria-label="我的文章"><img src="/favicon.svg" alt="我的文章" /></a></li>
+          <li><a href="https://github.com/siaikin" aria-label="GitHub" class="icon-[simple-icons--github]"></a></li>
+          <li><a href="https://twitter.com/siaikin" aria-label="Twitter" class="icon-[simple-icons--twitter]"></a></li>
+          <li><a href="https://space.bilibili.com/20324364" aria-label="Bilibili" class="icon-[simple-icons--bilibili]"></a></li>
+          <li><a href="https://juejin.cn/user/501033034605085" aria-label="掘金" class="icon-[simple-icons--juejin]"></a></li>
+          <li><a href="mailto:xiayi.jin@outlook.com" aria-label="Email" class="icon-[lucide--mail]"></a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article class="my-skills">
+      <section class="skill-group" aria-labelledby="expertise-heading">
+        <h2 id="expertise-heading" class="group__title">expertise</h2>
+        <ul class="skill-list">
+          <li class="list-item">
+            <h3>Software Development</h3>
+            <p>
+              具有前后端软件开发经验。<br />熟练使用<span class="highlight">JavaScript • TypeScript • Golang</span>
+            </p>
+          </li>
+          <li class="list-item">
+            <h3>Frontend Engineering</h3>
+            <p>
+              打造直观易用的交互体验。<br />5+ 年 <span class="highlight">Vue</span> 开发经验。
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="skill-group" aria-labelledby="work-heading">
+        <h2 id="work-heading" class="group__title">my work</h2>
+        <ul class="skill-list">
+          <li class="list-item">
+            <h3 class="group external-link">
+              <a href="https://vue-to-print.siaikin.website" target="_blank" rel="noopener noreferrer">Vue To Print</a><span class="link-icon"></span>
+            </h3>
+            <p>
+              跨浏览器的 Vue 组件打印解决方案。<br />支持 <span class="highlight">Chrome、Safari、Firefox 和 EDGE</span>，简单易用。
+            </p>
+            <p>
+              <VueToPrint class="hover:text-primary underline underline-offset-2 print:hidden" client:idle>试一试！</VueToPrint>
+            </p>
+          </li>
+          <li class="list-item">
+            <h3 class="group external-link">
+              <a href="https://timered-counter.netlify.app" target="_blank" rel="noopener noreferrer"><TimeredCounter class="print:hidden" /><span class="hidden print:inline">Timered Counter</span></a><span class="link-icon"></span>
+            </h3>
+            <p>
+              高性能动画驱动的计数器 <span class="highlight">Web 组件</span>。
+            </p>
+          </li>
+          <li class="list-item">
+            <h3 class="group external-link">
+              <a href="https://npm-version-stat.siaikin.website" target="_blank" rel="noopener noreferrer">Npm Version Stat</a><span class="link-icon"></span>
+            </h3>
+            <p>
+              可视化 <span class="highlight">npm 包版本分布</span>的分析工具。
+            </p>
+          </li>
+          <li class="list-item">
+            <h3 class="group external-link">
+              <a href="https://opbu.vercel.app" target="_blank" rel="noopener noreferrer">Opbu</a><span class="link-icon"></span>
+            </h3>
+            <p>
+              模型爱好者的 <span class="highlight">高达取件助手</span>，支持图片导出。
+            </p>
+          </li>
+        </ul>
+      </section>
+    </article>
+  </main>
 </Layout>
+
+<style lang="scss">
+	@reference '../styles/global.css';
+
+	.root {
+		@apply flex flex-col min-h-screen;
+		@apply md:size-full md:flex-row;
+	}
+
+	.user-info {
+		@apply flex-auto px-8 pt-16 pb-4 text-secondary bg-secondary/8;
+		@apply sm:px-12;
+		@apply md:w-golden-minor;
+		@apply lg:pr-0;
+		@apply xl:pl-28 xl:pt-32;
+		@apply 2xl:pl-32;
+
+		.my-name {
+			@apply inline-block uppercase text-7xl leading-none text-primary;
+		}
+
+		.my-description {
+			@apply text-lg mt-6 leading-loose;
+			@apply lg:w-4/5;
+		}
+	}
+
+	.my-skills {
+		@apply flex-auto flex flex-col justify-center items-start gap-12 p-8 bg-primary/8;
+		@apply sm:px-12;
+		@apply md:w-golden-major;
+		@apply xl:pl-28;
+		@apply 2xl:pl-48;
+
+		.skill-group {
+			@apply flex flex-col justify-end items-start gap-6;
+			@apply sm:flex-row;
+			@apply md:flex-col;
+			@apply lg:flex-row lg:gap-0;
+
+			.group__title {
+				@apply text-4xl text-secondary uppercase leading-none;
+				@apply sm:w-3xs;
+			}
+		}
+
+		.skill-list {
+			@apply text-secondary list-none space-y-4;
+			@apply sm:w-sm;
+
+			.list-item {
+				h3 {
+					@apply text-xl font-medium whitespace-nowrap;
+				}
+
+				h3.external-link {
+					@apply hover:underline underline-offset-2;
+
+					.link-icon {
+						@apply inline-block group-hover:visible invisible text-xs align-super icon-[lucide--square-arrow-out-up-right];
+					}
+				}
+
+				p {
+					@apply text-base mt-1 text-secondary leading-relaxed;
+
+					.highlight {
+						@apply text-primary font-medium;
+					}
+				}
+			}
+
+		}
+
+	}
+</style>
+
+<script>
+	console.log('字体加载完成');
+</script>

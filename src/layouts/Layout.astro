@@ -1,22 +1,52 @@
+---
+import "../styles/global.css";
+import '../assets/fonts/汇文明朝体.otf?subsets';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+	  <meta name="description" content="嘎啦嘛！嘎啦嘛！嘎啦嘛！😠">
+		<title>siaikin</title>
 	</head>
-	<body>
+	<body class="relative bg-(image:--background-image) bg-cover mask-(--mask-image) mask-cover">
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style lang="scss">
+	@reference '../styles/global.css';
+
+	html {
+		font-family: "Huiwen-mincho", sans-serif;
+	}
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		@apply w-screen min-h-screen;
+		@apply md:w-screen md:h-screen;
+	}
+
+	:root {
+		@apply text-[14px] sm:text-[14px] md:text-[16px];
 	}
 </style>
+
+<script>
+	import { createImageFromPattern, createMaskImage, createMaskImageByFilter, createMaskImageByFilter2 } from '@utils/create-image-from-pattern';
+	import pattern from '@assets/images/paper_01.min.webp';
+
+	const blob = await createImageFromPattern(pattern.src);
+	const url = URL.createObjectURL(blob);
+
+	const maskBlob = await createMaskImage(blob);
+	// const maskBlob = await createMaskImageByFilter(blob);
+	// const maskBlob = await createMaskImageByFilter2(blob);
+	const maskUrl = URL.createObjectURL(maskBlob);
+
+	document.documentElement.style.setProperty('--background-image', `url(${url})`);
+	document.documentElement.style.setProperty('--mask-image', `url(${maskUrl})`);
+</script>

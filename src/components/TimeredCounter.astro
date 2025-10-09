@@ -1,0 +1,27 @@
+---
+const { class: className } = Astro.props
+---
+
+<timered-counter-string class={className} id="timered-counter" value="               " parts-options={JSON.stringify({ sampleCount: 2 })} />
+
+<script>
+	import 'timered-counter';
+	import type { TimeredCounterString } from 'timered-counter';
+
+	const counter = document.getElementById('timered-counter') as TimeredCounterString;
+
+	counter.animationOptions = ({ preprocessData }) => {
+		let count = 0;
+		return preprocessData.map((part) => part.map(() => ({delay: count++ * 100,})));
+	};
+
+	setTimeout(() => {
+		counter?.setAttribute('value', 'Timered Counter');
+	}, 1000);
+
+	// counter?.setAttribute('value', str);
+	// setInterval(() => {
+	// 	str = str === '' ? 'Timered Counter' : '';
+	// 	counter?.setAttribute('value', str);
+	// }, 3000);
+</script>	

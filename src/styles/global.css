@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@plugin "@iconify/tailwind4";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@theme {
+  --color-primary: #ff5757; /* 主色调 (红色) */
+  --color-secondary: #7a7374; /* 次色调 (灰色) */
+  
+  /* 黄金分割宽度变量 (基于屏幕百分比) */
+  --width-golden-minor: 38.2%;      /* 较小部分 (100% / 1.618 ≈ 61.8%, 100% - 61.8% = 38.2%) */
+  --width-golden-major: 61.8%;      /* 较大部分 */
+}
