@@ -47,7 +47,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
           <li class="list-item">
             <h3>Software Development</h3>
             <p>
-              具有前后端软件开发经验。<br />熟练使用<span class="highlight">JavaScript • TypeScript • Golang</span>
+              具有前后端软件开发经验。<br />熟练使用 <span class="highlight">JavaScript • TypeScript • Golang</span>
             </p>
           </li>
           <li class="list-item">
@@ -74,10 +74,12 @@ import TimeredCounter from '@components/TimeredCounter.astro';
           </li>
           <li class="list-item">
             <h3 class="group external-link">
-              <a href="https://timered-counter.netlify.app" target="_blank" rel="noopener noreferrer"><TimeredCounter class="print:hidden" /><span class="hidden print:inline">Timered Counter</span></a><span class="link-icon"></span>
+              <a href="https://timered-counter.netlify.app" target="_blank" rel="noopener noreferrer">Timered Counter</a><span class="link-icon"></span>
             </h3>
             <p>
-              高性能动画驱动的计数器 <span class="highlight">Web 组件</span>。
+              动画驱动的计数器 <span class="highlight">Web 组件</span>。
+              <br />
+              <span class="print:hidden text-sm" title="Safari not supported">LCP: <TimeredCounter /></span>
             </p>
           </li>
           <li class="list-item">
@@ -158,7 +160,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 				}
 
 				h3.external-link {
-					@apply hover:underline underline-offset-2;
+					@apply underline underline-offset-1;
 
 					.link-icon {
 						@apply inline-block group-hover:visible invisible text-xs align-super icon-[lucide--square-arrow-out-up-right];
