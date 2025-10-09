@@ -2,9 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import VueToPrint from '@components/VueToPrint.vue';
 import TimeredCounter from '@components/TimeredCounter.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
@@ -41,6 +38,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
     </header>
 
     <article class="my-skills">
+      <span class="flex-none md:flex-auto"></span>
       <section class="skill-group" aria-labelledby="expertise-heading">
         <h2 id="expertise-heading" class="group__title" translate="no">expertise</h2>
         <ul class="skill-list">
@@ -133,7 +131,7 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 	.my-skills {
 		@apply flex-auto overflow-auto flex flex-col justify-start items-start gap-12 p-8 bg-primary/8;
 		@apply sm:px-12;
-		@apply md:w-golden-major md:justify-end md:pb-12;
+		@apply md:w-golden-major md:pb-12;
 		@apply lg:pl-16 lg:pb-16;
 		@apply xl:pl-28;
 		@apply 2xl:pl-48;

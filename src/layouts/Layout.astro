@@ -7,11 +7,35 @@ import '../assets/fonts/汇文明朝体.otf?subsets';
 <html lang="zh-CN">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-	  <meta name="description" content="嘎啦嘛！嘎啦嘛！嘎啦嘛！😠">
-		<title>siaikin</title>
+		
+		<!-- SEO Meta Tags -->
+		<title>siaikin's Page</title>
+		<meta name="description" content="嘎啦嘛！嘎啦嘛！嘎啦嘛！😠" />
+		<meta name="keywords" content="siaikin,个人网站,技术博客,前端开发,编程" />
+		<meta name="author" content="siaikin" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="siaikin's Page" />
+		<meta property="og:description" content="嘎啦嘛！嘎啦嘛！嘎啦嘛！😠" />
+		<meta property="og:url" content="https://siaikin.me" />
+		<meta property="og:site_name" content="siaikin's Page" />
+		<meta property="og:image" content="/favicon.svg" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:locale" content="zh_CN" />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="siaikin's Page" />
+		<meta name="twitter:description" content="嘎啦嘛！嘎啦嘛！嘎啦嘛！😠" />
+		<meta name="twitter:creator" content="@siaikin" />
+		
+		<!-- Additional SEO Tags -->
+		<link rel="canonical" href="https://siaikin.me" />
 	</head>
 	<body class="relative bg-(image:--background-image) bg-cover mask-(--mask-image) mask-cover">
 		<slot />
