@@ -57,7 +57,7 @@ import GueletonSample from '@components/GueletonSample.vue';
       </section>
       <section class="skill-group" aria-labelledby="work-heading">
         <h2 id="work-heading" class="group__title" translate="no">my work</h2>
-        <GueletonSample client:load>
+        <GueletonSample client:only="vue">
           <ul class="skill-list">
             <li class="list-item">
               <h3>
@@ -73,10 +73,6 @@ import GueletonSample from '@components/GueletonSample.vue';
               </p>
             </li>
             <li class="list-item group relative">
-              <!-- <span
-                class="print:invisible transition-opacity absolute right-0 z-0  w-auto h-full !aspect-square text-secondary icon-[lucide--refresh-cw] opacity-25 group-hover:opacity-50"
-                :class="{ 'animate-spin': loading }"
-                ></span> -->
               <h3>
                 <span class="group/link external-link">
                   <a @click.stop href="https://gueleton.siaikin.me" target="_blank" rel="noopener noreferrer" translate="no">Gueleton</a><span class="link-icon"></span>

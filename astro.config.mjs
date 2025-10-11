@@ -13,11 +13,11 @@ export default defineConfig({
 
   vite: {
     plugins: [
+      Gueleton(),
       tailwindcss(),
       Font.vite({
         scanFiles: ['src/**/*.{vue,ts,tsx,js,jsx,astro,html}'],
       }),
-      Gueleton(),
     ]
   },
 
