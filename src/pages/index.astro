@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VueToPrint from '@components/VueToPrint.vue';
-import TimeredCounter from '@components/TimeredCounter.astro';
+import GueletonSample from '@components/GueletonSample.vue';
 ---
 
 <Layout>
@@ -58,51 +57,68 @@ import TimeredCounter from '@components/TimeredCounter.astro';
       </section>
       <section class="skill-group" aria-labelledby="work-heading">
         <h2 id="work-heading" class="group__title" translate="no">my work</h2>
-        <ul class="skill-list">
-          <li class="list-item">
-            <h3 class="group external-link">
-              <a href="https://vue-to-print.siaikin.website" target="_blank" rel="noopener noreferrer" translate="no">Vue To Print</a><span class="link-icon"></span>
-            </h3>
-            <p>
-              跨浏览器的 <span translate="no">Vue</span> 组件打印解决方案。<br />支持 <span class="highlight" translate="no">Chrome、Safari、Firefox 和 EDGE</span>，简单易用。
-            </p>
-            <p>
-              <VueToPrint class="hidden md:inline-block hover:text-primary underline underline-offset-2 print:hidden" client:idle>试一试！</VueToPrint>
-            </p>
-          </li>
-          <li class="list-item">
-            <h3 class="group external-link">
-              <a href="https://timered-counter.netlify.app" target="_blank" rel="noopener noreferrer" translate="no">Timered Counter</a><span class="link-icon"></span>
-            </h3>
-            <p>
-              动画驱动的计数器 <span class="highlight" translate="no">Web</span> 组件。
-              <br />
-              <span class="print:hidden text-sm" title="Safari not supported" translate="no">LCP: <TimeredCounter /></span>
-            </p>
-          </li>
-          <li class="list-item">
-            <h3 class="group external-link">
-              <a href="https://npm-version-stat.siaikin.website" target="_blank" rel="noopener noreferrer" translate="no">Npm Version Stat</a><span class="link-icon"></span>
-            </h3>
-            <p>
-              可视化 <span class="highlight" translate="no">npm</span> 包版本分布的分析工具。
-            </p>
-          </li>
-          <li class="list-item">
-            <h3 class="group external-link">
-              <a href="https://opbu.vercel.app" target="_blank" rel="noopener noreferrer" translate="no">Opbu</a><span class="link-icon"></span>
-            </h3>
-            <p>
-              模型爱好者的 <span class="highlight">高达取件助手</span>，支持图片导出。
-            </p>
-          </li>
-        </ul>
+        <GueletonSample client:load>
+          <ul class="skill-list">
+            <li class="list-item">
+              <h3>
+                <span class="group/link external-link">
+                  <a href="https://vue-to-print.siaikin.website" target="_blank" rel="noopener noreferrer" translate="no">Vue To Print</a><span class="link-icon"></span>
+                </span>
+              </h3>
+              <p>
+                跨浏览器的 <span translate="no">Vue</span> 组件打印解决方案。<br />支持 <span class="highlight" translate="no">Chrome、Safari、Firefox 和 EDGE</span>，简单易用。
+              </p>
+              <p>
+                <button id="print-button" class="hover:text-primary underline underline-offset-2 print:hidden">试一试！</span>
+              </p>
+            </li>
+            <li class="list-item group relative">
+              <!-- <span
+                class="print:invisible transition-opacity absolute right-0 z-0  w-auto h-full !aspect-square text-secondary icon-[lucide--refresh-cw] opacity-25 group-hover:opacity-50"
+                :class="{ 'animate-spin': loading }"
+                ></span> -->
+              <h3>
+                <span class="group/link external-link">
+                  <a @click.stop href="https://gueleton.siaikin.me" target="_blank" rel="noopener noreferrer" translate="no">Gueleton</a><span class="link-icon"></span>
+                </span>
+              </h3>
+              <p>
+                一个从现有的页面<span class="highlight" translate="no">自动生成</span>占位骨架的插件。
+              </p>
+              <p>
+                <button id="gueleton-reload" class="hover:text-primary underline underline-offset-2 print:hidden">生成！</button>
+              </p>
+
+            </li>
+            <li class="list-item">
+              <h3>
+                <span class="group/link external-link">
+                  <a href="https://npm-version-stat.siaikin.website" target="_blank" rel="noopener noreferrer" translate="no">Npm Version Stat</a><span class="link-icon"></span>
+                </span>
+              </h3>
+              <p>
+                可视化 <span class="highlight" translate="no">npm</span> 包版本分布的分析工具。
+              </p>
+            </li>
+            <li class="list-item">
+              <h3>
+                <span class="group/link external-link">
+                  <a href="https://opbu.vercel.app" target="_blank" rel="noopener noreferrer" translate="no">Opbu</a><span class="link-icon"></span>
+                </span>
+              </h3>
+              <p>
+                模型爱好者的 <span class="highlight">高达取件助手</span>，支持图片导出。
+              </p>
+            </li>
+          </ul>
+        </GueletonSample>
+        
       </section>
     </article>
   </main>
 </Layout>
 
-<style lang="scss">
+<style lang="scss" is:global>
 	@reference '../styles/global.css';
 
 	.root {
@@ -157,11 +173,11 @@ import TimeredCounter from '@components/TimeredCounter.astro';
 					@apply text-xl font-medium whitespace-nowrap;
 				}
 
-				h3.external-link {
+				.external-link {
 					@apply underline underline-offset-1;
 
 					.link-icon {
-						@apply inline-block group-hover:visible invisible text-xs align-super icon-[lucide--square-arrow-out-up-right];
+						@apply inline-block group-hover/link:visible invisible text-xs align-super icon-[lucide--square-arrow-out-up-right];
 					}
 				}
 
@@ -175,8 +191,47 @@ import TimeredCounter from '@components/TimeredCounter.astro';
   .highlight {
     @apply text-primary font-medium;
   }
+
+  .animate-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-wave::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #fff0, #ffffff80, #fff0);
+  animation: wave 1.5s linear infinite;
+}
+@keyframes wave {
+  0% {
+    transform: translate(-100%);
+  }
+  100% {
+    transform: translate(100%);
+  }
+}
 </style>
 
 <script>
-	console.log('字体加载完成');
+  import { useVueToPrint } from "vue-to-print";
+
+  const { handlePrint } = useVueToPrint({
+    content: () => document.body,
+    documentTitle: "siaikin's 简历",
+  });
+
+  document.getElementById("print-button")?.addEventListener("click", (e) => {
+    e.preventDefault();
+    handlePrint();
+  });
+
 </script>
